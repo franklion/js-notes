@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="first">First</button>
+  <button id="second">Second</button>
+  <button id="third">Third</button>
+
+  <!-- 版本一 基本型 -->
+  <script>
+    var buttons = document.getElementsByTagName('button')
+
+    for(var i = 0; i < buttons.length; i++) {
+      // buttonName 暴露於 global environment
+      var buttonName = buttons[i].innerText
+      buttons[i].addEventListener('click', function() {
+        console.log(buttonName)
+      })
+    }
+  
+  </script>
+
+
+  <!-- 版本二 變化型 使用閉包 -->
+  <!-- <script>
+    
+    var buttons = document.getElementsByTagName('button')
+  
+    function saveButtonName(buttonName) {
+      var buttonName = buttonName
+      return function() {
+        console.log(buttonName)
+      }
+    }
+
+    for(var i = 0; i < buttons.length; i++) {
+      // buttonName 暴露於 global environment
+      var buttonName = buttons[i].innerText
+      buttons[i].addEventListener('click', saveButtonName(buttonName))
+    }
+  
+  </script> -->
+
+  <!-- 版本三 變化型 使用 let -->
+  <!-- <script>
+    var buttons = document.getElementsByTagName('button')
+
+    for(var i = 0; i < buttons.length; i++) {
+      // buttonName 暴露於 global environment
+      let buttonName = buttons[i].innerText
+      buttons[i].addEventListener('click', function() {
+        console.log(buttonName)
+      })
+    }
+  
+  </script> -->
+</body>
+</html>
